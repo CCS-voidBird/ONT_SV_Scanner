@@ -1,10 +1,10 @@
 import allel
-import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 pd.options.mode.chained_assignment = None
 import os
 import argparse
+
+INTRO="vcf_stat was designed for collecting numbers from vcf files, include mapper, caller, SV type, absolute length and add sample name to each record."
 
 HEADER = ["SVTYPE","SVLEN""length","caller","mapper","RE","sample"]
 
@@ -13,13 +13,12 @@ CALLERS = ["cuteSV","nanoSV","svim","sniffles","overlap"]
 MAPPERS = ["minimap2","ngmlr","overlap"]
 
 def main():
-    parser = argparse.ArgumentParser(description="test")
+    parser = argparse.ArgumentParser(description=INTRO)
     req_grp = parser.add_argument_group(title='Required')
     req_grp.add_argument('-i', '--input', type=str, help="Input VCF folder.", required=True)
     req_grp.add_argument('-o', '--output', type=str, help="Output directory", required=True)
     req_grp.add_argument('-s', '--sample', type=str, help="sample name",required=True)
-    req_grp.add_argument('-r',"--record",type=bool,help="record file",default=False)
-#    parser.add_argument('-l', '--log', type=str, help="Log file name")
+    req_grp.add_argument('-r',"--record",type=bool,help="record file (currently not working",default=False)
     file_names = []
     args = parser.parse_args()
     if args.output[0] == "/":
