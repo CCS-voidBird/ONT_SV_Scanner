@@ -2,7 +2,7 @@
 
 Version 0.5
 
-This Toolkit is still in working.
+This Toolkit needs to be maintained.
 
 ```
 usage: vcf_cluster.py [-h] -i INPUT -o OUTPUT [-s THRESHOLD] [-e EPS]
